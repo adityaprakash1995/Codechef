@@ -1,0 +1,34 @@
+#include <iostream>
+#include <cstdio>
+ 
+using namespace std;
+ 
+long int t,n,i,r,b,g;
+char a[100000];
+ 
+int main()
+{
+    
+    scanf("%ld",&t);
+    while(t--){
+        scanf("%ld",&n);
+        r=b=g=0;
+        scanf("%s",a);
+        for(i=0;i<n;i++){
+            if(a[i]=='R'){
+                r++;
+            }
+            else if(a[i]=='B'){
+                b++;
+            }
+            else
+                g++;
+        }
+        if(r==b && r==g && b==g)
+            printf("%ld\n",2*r);
+        else
+            printf("%ld\n",n-((r>b)?((r>g)?r:g):((b>g)?b:g)));
+    }
+    return 0;
+}
+ 
