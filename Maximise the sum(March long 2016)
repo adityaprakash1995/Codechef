@@ -1,0 +1,55 @@
+#include <iostream>
+#include <cstdio>
+using namespace std;
+ 
+int main()
+{
+    long long int t,n,k,a[100000],b[100000],i,temp,loc,c,d,count;
+    scanf("%lld",&t);
+    while(t--){
+        scanf("%lld %lld",&n,&k);
+        for(i=0;i<n;i++){
+            scanf("%lld",&a[i]);
+        }
+        for(i=0;i<n;i++){
+            scanf("%lld",&b[i]);
+        }
+        temp=0;
+        loc=0;
+        for(i=0;i<n;i++){
+            if(b[i]>0){
+                if(b[i]>temp){
+                    temp=b[i];
+                    loc=i;
+                }
+                else if(b[i]==temp){
+                    if(a[i]>a[loc]){
+                        loc=i;
+                    }
+                }
+                else
+                    continue;
+            }
+            else{
+                c=(-1)*b[i];
+                if(c>temp){
+                    temp=c;
+                    loc=i;
+                }
+            }
+        }
+        if(b[loc]<0){
+                a[loc]=a[loc]-k;
+        }
+        else
+             a[loc]=a[loc]+k;
+ 
+ 
+        d=0;
+        for(i=0;i<n;i++){
+            d=d+(a[i]*b[i]);
+        }
+        printf("%lld\n",d);
+    }
+    return 0;
+}
