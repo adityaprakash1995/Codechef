@@ -1,0 +1,28 @@
+#include <iostream>
+#include <cstdio>
+using namespace std;
+ 
+int sum(int d,int n){
+    if(d==1){
+        return (n*(n+1))/2;
+    }
+    else{
+        d--;
+        n=(n*(n+1))/2;
+        return sum(d,n);
+    }
+}
+ 
+ 
+int main()
+{
+    int t,n,d,i;
+    scanf("%d",&t);
+    while(t--){
+        scanf("%d %d",&d,&n);
+        printf("%d\n",sum(d,n));
+    }
+ 
+    return 0;
+}
+ 
